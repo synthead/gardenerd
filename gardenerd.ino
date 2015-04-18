@@ -8,5 +8,4 @@ void setup() {
 
 void loop() {
   Irrigators::check_irrigators();
-  Relays::check_states();
 }

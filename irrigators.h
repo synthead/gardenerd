@@ -10,11 +10,21 @@ namespace Irrigators {
   class Irrigator {
       Relays::Relay* relay;
       MCP3008::MCP3008* mcp3008;
-      uint8_t channel;
+      uint8_t mcp3008_channel;
+
       uint16_t desired_moisture;
+      uint8_t watering_time;
+      uint8_t wait_time;
+
+      unsigned long watering_timeout;
+      unsigned long wait_timeout;
+
+      uint8_t state;
     public:
-      Irrigator(Relays::Relay*, MCP3008::MCP3008*, uint8_t, uint16_t);
-      void check_sensor();
+      Irrigator(
+          Relays::Relay*, MCP3008::MCP3008*, uint8_t, uint16_t, uint8_t,
+          uint8_t);
+      void check_irrigator();
   };
 
   void check_irrigators();
